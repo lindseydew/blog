@@ -1,9 +1,9 @@
-@(blogForm: Form[Blog])
+@(blogForm: Form[Blog], slug: String)
 @import helper._
 @import helper.twitterBootstrap._
 
 @main {
-@form(routes.Application.newBlog) {
+@form(routes.Application.updateBlog(slug)) {
 
 @textarea(blogForm("title"), 'class -> "input-xxlarge", 'rows -> "1")
 @textarea(blogForm("post"), 'class -> "input-xxlarge", 'rows -> "12")
@@ -14,4 +14,3 @@
 
 }
 }
-

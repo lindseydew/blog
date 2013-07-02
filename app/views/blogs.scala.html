@@ -1,13 +1,12 @@
-@()
+ @(blogs: List[Blog])
+@main {
 
-@template() {
-<div ng-controller="BlogCtrl">
+ @blogs.map { blog =>
     <ul class="blogs">
-    <li ng-repeat="b in blogs">
-        <h2 ng-bind="b.title"></h2>
-        <div ng-bind-html-unsafe="b.body"></div>
-    </li>
+        <li>
+            <h2><a href="/blog/@blog.slug">@blog.title</a></h2>
+            @Html(blog.body)
+        </li>
     </ul>
-</div>
-
+   }
 }

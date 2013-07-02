@@ -4,12 +4,15 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.mvc._
 import play.api.libs.json._
-import models.{BlogDAO, Blog}
 import laika.api._
 import utils.JSONParsing
 import laika.parse.markdown.Markdown
 import laika.parse.rst.ReStructuredText
-
+import org.bson.types.ObjectId
+import models.{BlogDB, Blog, BlogDAO}
+import org.joda.time.DateTime
+import com.mongodb.casbah.util.bson.conversions.RegisterConversionHelpers
+import com.mongodb.casbah.commons.conversions.scala.RegisterJodaTimeConversionHelpers
 
 
 object Application extends Controller {
@@ -19,11 +22,41 @@ object Application extends Controller {
   }
 
   def main(any: String) = Action {
-    Ok(views.html.main())
+    Ok
   }
 
   def blogs = Action {
-    Ok(views.html.blogs())
+    val blogs = BlogDAO.list
+    Ok(views.html.blogs(blogs))
+  }
+
+
+  def blog(slug: String) = Action {
+    val blog = BlogDAO.bySlug(slug)
+    Ok(views.html.blog(blog))
+  }
+
+  def adminTest = Action {
+    Ok(views.html.addBlog())
+  }
+  
+  def edit(slug: String) = Action {
+    val blog = BlogDAO.bySlug(slug)
+    Ok(views.html.editBlog(blogForm.fill(blog), slug: String))
+  }
+
+  def updateBlog(slug: String) = Action { implicit request =>
+    blogForm.bindFromRequest.fold(
+      errors => {
+        println(errors)
+        BadRequest("whoops")
+      },
+      b => {
+        println("do I get here?")
+        BlogDAO.updateBlog(b)
+        Redirect(routes.Application.blog(b.slug))
+      }
+    )
   }
 
   //todo - put this in a more sensible place
@@ -36,22 +69,88 @@ object Application extends Controller {
       )
     }
   }
-  val testBlog = Blog(title="Why aren't there more women in tech?", body="<p>Today I got asked why aren't there more women opting to go into technology roles. My first answer was 'I don't know'. The work appeals to me, and I'm female. Clearly I'm not representative of all womankind, but it's likely the aspects of the role that gives me job satisfaction would be true for lots of other women.</p><p>But then I wasn't born with an innate desire to program and if you had asked me a few years ago whether I would consider a role in technology I would have said no. I feel fortunate that I have been able to overcome the barriers that made me think technology wouldn't be for me. Here are some of the reasons:</p><p><b>Little experience of programming:</b> I never had a reason to program, so I didn't. For a long time I worried whether this made me a less legitimate 'programmer'. I have often felt if I was genuinely a good software engineer, wouldn't have I been able to figure it out by myself? But really what you need to a desire to solve a problem and then you pick up the skills you need to solve it. For me, I care far more about solving a problem if I know the outcome affects others (be it my team, the company etc). Plus I'm a social learner. It's suited me to learn programming with other programmers, and not alone in my bedroom. Had I have not been offered the opportunity to learn on the job, I'm not certain I would have picked up the skills just off my own back. But now that I have a set of skills, I can apply my problem solving skills in this domain</p> <p><b>Perception of sitting alone at your desk all day:</b> I'm a fairly social worker, and I did worry that I might find the work isolating. The stereotype I had in my head was some guy sitting at his desk all day with his headphones on, with never a need to communicate. It is not like this. At all. Almost every day I collaborate with people in some form. Sometimes this is debugging with a fellow dev, or working out the spec with the product manager, making interface tweaks with UX, testing out new functionality of code with QA. It's not all talking, and I spend a lot of my time problem solving too. But there is so much more to being a developer than churning out code.</p><p><b>Male dominated culture:</b>It's sort of a feedback loop situation. As there are more men who opt into the field, 'tech' events as more naturally tailored to appeal to the demographic. This can make technology feel like it's only welcoming for men, but I believe this is more of a side effect than a cause. The only way this can change is for more women to take the plunge and join the force.</p><p>If the hurdles I have perceived are the same preventing other women from going for tech jobs, then barrier to entry can be solved with skills training and cultural changes with probably happen naturally as more women enter the field. Apparently if as many women opted for tech roles as men, then we'd solve the skills shortage too.</p>", createdOn=2L, slug="women-in-tech")
+  //this is reads for play 2.0 - 
+  // it's kind of crappy as can 
+  // result in a runtime exception if json doesn't follow schema
+//  implicit val blogReads = new Reads[Blog] {
+//     def reads(json: JsValue): Blog = {
+//        Blog(
+//          (json \ "title").as[String],
+//          (json \ "body").as[String],
+//          (json \ "slug").as[String],
+//          (json \ "createdOn").as[Long]
+//          )
+//     }
+//  }
+  import play.api.libs.json.util._
+  import play.api.libs.functional.syntax._
+
+  implicit val blogReads  = (
+      (__ \ "title").read[String] and
+      (__ \ "body").read[String] and
+      (__ \ "slug").read[String] and
+      (__ \ "createdOn").read[DateTime]
+    )(Blog)
+
+
+
+  val testBlog = Blog(title="Why aren't there more women in tech?", body="<p>Today I got asked why aren't there more women opting to go into technology roles. My first answer was 'I don't know'. The work appeals to me, and I'm female. Clearly I'm not representative of all womankind, but it's likely the aspects of the role that gives me job satisfaction would be true for lots of other women.</p><p>But then I wasn't born with an innate desire to program and if you had asked me a few years ago whether I would consider a role in technology I would have said no. I feel fortunate that I have been able to overcome the barriers that made me think technology wouldn't be for me. Here are some of the reasons:</p><p><b>Little experience of programming:</b> I never had a reason to program, so I didn't. For a long time I worried whether this made me a less legitimate 'programmer'. I have often felt if I was genuinely a good software engineer, wouldn't have I been able to figure it out by myself? But really what you need to a desire to solve a problem and then you pick up the skills you need to solve it. For me, I care far more about solving a problem if I know the outcome affects others (be it my team, the company etc). Plus I'm a social learner. It's suited me to learn programming with other programmers, and not alone in my bedroom. Had I have not been offered the opportunity to learn on the job, I'm not certain I would have picked up the skills just off my own back. But now that I have a set of skills, I can apply my problem solving skills in this domain</p> <p><b>Perception of sitting alone at your desk all day:</b> I'm a fairly social worker, and I did worry that I might find the work isolating. The stereotype I had in my head was some guy sitting at his desk all day with his headphones on, with never a need to communicate. It is not like this. At all. Almost every day I collaborate with people in some form. Sometimes this is debugging with a fellow dev, or working out the spec with the product manager, making interface tweaks with UX, testing out new functionality of code with QA. It's not all talking, and I spend a lot of my time problem solving too. But there is so much more to being a developer than churning out code.</p><p><b>Male dominated culture:</b>It's sort of a feedback loop situation. As there are more men who opt into the field, 'tech' events as more naturally tailored to appeal to the demographic. This can make technology feel like it's only welcoming for men, but I believe this is more of a side effect than a cause. The only way this can change is for more women to take the plunge and join the force.</p><p>If the hurdles I have perceived are the same preventing other women from going for tech jobs, then barrier to entry can be solved with skills training and cultural changes with probably happen naturally as more women enter the field. Apparently if as many women opted for tech roles as men, then we'd solve the skills shortage too.</p>", createdOn=DateTime.now(), slug="women-in-tech")
   def apiblogs = Action {
+   val blog = BlogDB(new ObjectId, testBlog)
    val blogs = BlogDAO.list
     Ok(Json.obj("status" -> "OK", "data" -> blogs))
   }
-  
-  val blogForm = Form("post" -> text)
 
-  def addNew = Action { request =>
+  val blogForm = Form(
+    mapping(
+      "title" -> text,
+      "post" -> text,
+      "slug" -> text
+    ){ (title: String, post: String, slug:String) => Blog(title, post, slug, DateTime.now()) }
+    { (blog: Blog) => Some(blog.title, blog.body, blog.slug) }
+  )
+  
+
+  def newPostPlay = Action { request =>
     Ok(views.html.newBlog(blogForm))
   }
 
+  def newBlog = Action { implicit request =>
+    blogForm.bindFromRequest.fold(
+      errors => {
+        println(errors)
+        BadRequest("whoops")
+      },
+      b => {
+        val body  =Transform from Markdown to laika.render.HTML fromString b.body toString()
+        val newBlog = BlogDB(new ObjectId, Blog(b.title, body, b.slug, DateTime.now()))
+        println("inserting new post")
+        RegisterConversionHelpers()
+        RegisterJodaTimeConversionHelpers()
+        BlogDAO.insert(newBlog)
+        Redirect("blogs")
+      }
+    )
+  }
+
   def newPost = Action { implicit request =>
-    val post = blogForm.bindFromRequest.get
-    val result =Transform from Markdown to laika.render.HTML fromString post toString()
-    Ok(result)
+    println("do I get here?")
+    //todo - handle potential exception
+    val js = request.body.asJson.get
+    val res: JsResult[Blog] = js.validate[Blog]
+    res.fold(
+      valid = { b =>
+        //todo - refactor this so it is prettier!
+        val body  =Transform from Markdown to laika.render.HTML fromString b.body toString()
+        val newBlog = BlogDB(new ObjectId, Blog(b.title, body, b.slug, b.createdOn))
+        println("inserting new post")
+
+        BlogDAO.insert(newBlog)
+      },
+      invalid = { e => println(e); e}
+    )
+    
+    Ok("cool")
   }
 
 }

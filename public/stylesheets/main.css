@@ -4,10 +4,12 @@
     /*border-color: rgb(245, 11, 170);*/
 }
 .side-bar {
-    padding: 0 15px;
+    padding: 0px;
 
 }
-
+.page-header {
+    margin: 0px
+}
 .header {
     margin-top: 0px;
     padding: 20px 15px 45px;
@@ -20,7 +22,6 @@
     padding: 20px 40px;
 }
 .navbar-inner {
-    border-top: 1px solid rgb(245, 11, 170);
     border-bottom: 1px solid rgb(245, 11, 170);
     background-color: rgb(245, 11, 170);
     -webkit-border-radius: 0px;
@@ -42,5 +43,21 @@
 }
 .blogs li {
     border-bottom: 1px solid rgb(245, 11, 170);
-    padding: 20px 0;
+}
+
+.row-test {
+
+
+}
+.main-content {
+    border-left: 1px solid rgb(245, 11, 170);
+    border-right: 1px solid rgb(245, 11, 170);
+    border-top: 1px solid white;
+}
+.main {
+
+}
+
+.blog-form {
+    padding: 15px;
 }
