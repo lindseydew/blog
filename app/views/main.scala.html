@@ -3,40 +3,31 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <script src="@routes.Assets.at("javascripts/app.js")" type="text/javascript"></script>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
 </head>
 <body>
-<script src="@routes.Assets.at("javascripts/app.js")" type="text/javascript"></script>
-<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
-<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
 
-<div class="page-header header">
 
-        <h1>Lindsey's Blog
-        <small><i>like a wordpress site, but with less functionality</i></small></h1>
-        </div>
-<div class="navbar">
-        <div class="navbar-inner">
-        <ul class="nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="/blogs">Blogs</a></li>
-        </ul>
-        </div>
-        </div>
-        </div>
+    <div class="page-header header">
+            <h1>Lindsey's Blog
+            <small><i>like a wordpress site, but with less functionality</i></small></h1>
+            </div>
+     </div>
+    <div class="row row-content">
+            <div class="span10 main-content">
+                <div class="more-content">
+                    @content
+                </div>
+             </div>
+            <div class="span4 side-bar">
+                <h2>Lindsey</h2>
+                <p>Web developer at The Guardian and general tech enthusiast</p>
+                <p>Also developer of this blogging platform. I have also writen an api endpoint, so please do fix my styling woes
+                <a href="/api/blogs">api</a></p>
+            </div>
 
-<div class="container">
-   <div class="row">
-   <div class="span9">
-
-@content
- </div>
-<div class="span3 side-bar">
-        <h2>Lindsey</h2>
-        <p>Web developer at The Guardian and general tech enthusiast</p>
-        <p>Also developer of this blogging platform. I have also writen an api endpoint, so please do fix my styling woes
-        <a href="/api/blogs">api</a></p>
-        </div>
-        </div>
-        </div>
-</blogy
+    </div>
+</body
 </html>  
