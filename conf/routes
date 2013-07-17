@@ -10,14 +10,11 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /                           controllers.Application.index
 GET     /blogs                      controllers.Application.blogs
 GET     /api/blogs                  controllers.Application.apiblogs
-POST    /admin/new                  controllers.Application.newPost
 POST    /new                        controllers.Application.newBlog
-GET     /admin/test                 controllers.Application.newPostPlay
+GET     /admin/new                  controllers.Application.newPostPlay
 GET     /admin/edit/:slug           controllers.Application.edit(slug: String)
 GET     /views/addBlog              controllers.Application.adminTest
 GET     /blog/:slug                 controllers.Application.blog(slug: String)
 POST    /update/:slug               controllers.Application.updateBlog(slug: String)
 
 #GET     /*any                       controllers.Application.main(any)
-
-

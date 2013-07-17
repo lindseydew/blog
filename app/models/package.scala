@@ -23,10 +23,15 @@ package object myApp  {
 
   object DB {
     val mongoUri = "localhost:27000"
-    val connection = MongoConnection(mongoUri)("blog")
+    val connection = MongoConnection(mongoUri)("blogs")
     def apply(collection: String) = connection(collection)
   }
   def formatTest(date: DateTime, pattern: String = "d MMMM, YYYY") = DateTimeFormat.forPattern(pattern).print(date)
 
   def stripBody(blog: String) = blog.take(800)
+
+  object Status extends Enumeration {
+    type Status = Value
+    val Live, Pending, Deleted = Value
+  }
 }
