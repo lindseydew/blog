@@ -1,11 +1,19 @@
  @(blogs: List[Blog])
+@import myApp._
 @main {
 
  @blogs.map { blog =>
     <ul class="blogs">
         <li>
-            <h2><a href="/blog/@blog.slug">@blog.title</a></h2>
-            @Html(blog.body)
+            <div class="blog-heading">
+                <h2><a href="/blog/@blog.slug">@blog.title</a></h2><span class="time">@formatTest(blog.createdOn)</span>
+            </div>
+            <div class="blog-body">
+                @Html(stripBody(blog.body))...
+                <div class="read-on">
+                    <p><a href="/blog/@blog.slug">read more</a></p>
+                </div>
+            </div>
         </li>
     </ul>
    }

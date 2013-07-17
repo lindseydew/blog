@@ -8,6 +8,8 @@ import models._
 import com.mongodb.casbah.Imports._
 import myApp._
 import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
+
 
 case class BlogDB(_id: ObjectId = new ObjectId,
                  blog: Blog)
@@ -19,6 +21,7 @@ case class Blog (
                  createdOn: DateTime = DateTime.now()
                  )  {
  // def apply(title: String, body: String, slug: String) = new Blog(title, body, slug)
+
 }
 
 case class Tags(tags: List[String])
@@ -45,3 +48,4 @@ object BlogDAO extends SalatDAO[BlogDB, ObjectId](collection=DB("blogs"))  {
 
 
 }
+

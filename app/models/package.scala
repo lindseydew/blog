@@ -6,6 +6,8 @@ import play.api.Play.current
 import play.api.Play
 import com.mongodb.casbah.commons.Imports._
 import com.mongodb.{MongoURI, WriteConcern}
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
 
 package object myApp  {
 
@@ -24,4 +26,7 @@ package object myApp  {
     val connection = MongoConnection(mongoUri)("blog")
     def apply(collection: String) = connection(collection)
   }
+  def formatTest(date: DateTime, pattern: String = "d MMMM, YYYY") = DateTimeFormat.forPattern(pattern).print(date)
+
+  def stripBody(blog: String) = blog.take(800)
 }

@@ -9,22 +9,24 @@
 </head>
 <body>
 
+    <div class="navigation">
+<!--           <a href="/blogs"><img class="icon" src="@routes.Assets.at("images/shoe-icon-bubble.png")"><a>  -->
+            <a class="brand" href="/blogs">Lindsey's Blog</a>
 
-    <div class="page-header header">
-            <h1>Lindsey's Blog
-            <small><i>like a wordpress site, but with less functionality</i></small></h1>
-            </div>
+
      </div>
+
     <div class="row row-content">
-            <div class="span10 main-content">
+            <div class="span9 offset2 main-content">
                 <div class="more-content">
                     @content
                 </div>
              </div>
-            <div class="span4 side-bar">
+            <div class="span3 side-bar align="center">
+                <img class="avatar" src="@routes.Assets.at("images/cartoon-me.png")">
                 <h2>Lindsey</h2>
-                <p>Web developer at The Guardian and general tech enthusiast</p>
-                <p>Also developer of this blogging platform. I have also writen an api endpoint, so please do fix my styling woes
+                <p>Web developer, and creator of this blog.</p>
+                <p>For those that find json easier to read, check out my
                 <a href="/api/blogs">api</a></p>
             </div>
 

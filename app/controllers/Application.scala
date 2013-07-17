@@ -41,7 +41,8 @@ object Application extends Controller {
   }
   
   def edit(slug: String) = Action {
-    val blog = BlogDAO.bySlug(slug)
+    val b = BlogDAO.bySlug(slug)
+    val blog = Blog(b.title, b.body, b.slug, b.createdOn)
     Ok(views.html.editBlog(blogForm.fill(blog), slug: String))
   }
 

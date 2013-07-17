@@ -1,0 +1,4 @@
+[color]
+    ui=always
+[alias]
+    graph=log
