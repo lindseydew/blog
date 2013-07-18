@@ -129,7 +129,7 @@ object Application extends Controller {
       },
       b => {
         val body  = Transform from Markdown to laika.render.HTML fromString b.body toString()
-        val newBlog = BlogDB(new ObjectId, Blog(b.title, body, b.slug), MetaData("live", b.body, DateTime.now()))
+        val newBlog = BlogDB(new ObjectId, Blog(b.title, body, b.slug), MetaData("live", b.body))
         println("inserting new post")
         RegisterConversionHelpers()
         RegisterJodaTimeConversionHelpers()

@@ -22,8 +22,9 @@ package object myApp  {
   }
 
   object DB {
-    val mongoUri = "localhost:27000"
-    val connection = MongoConnection(mongoUri)("blogs")
+    val mongoUri = "dharma.mongohq.com:10097"
+    val connection = MongoConnection(mongoUri)("Lindseys-Blog")
+    connection.authenticate("admin","admin")
     def apply(collection: String) = connection(collection)
   }
   def formatTest(date: DateTime, pattern: String = "d MMMM, YYYY") = DateTimeFormat.forPattern(pattern).print(date)
