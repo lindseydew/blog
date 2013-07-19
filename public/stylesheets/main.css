@@ -2,25 +2,16 @@
     border-right: 1px dotted;
     border-color: rgb(245, 11, 170);
 }
-.side-bar {
-
-
-}
 
 /* styling to do with the HEADER */
-.page-header {
-    margin: 0px
-}
+
 .header {
     margin-top: 0px;
     padding: 20px 15px 45px;
     font-family: Helvetica;
     background-image: url("/assets/images/blog-image-resize.jpg");
 }
-.header h1 {
-    color: white;
-    padding: 20px 40px;
-}
+
 
 /*.navbar-inner {*/
     /*border-bottom: 1px solid rgb(245, 11, 170);*/
@@ -43,21 +34,13 @@
     font-weight: 400;
     color: #333;
     text-shadow: 0 1px 0 #fff;
+    padding-left: 60px;
 }
 .brand:hover {
     text-decoration: none;
     color: rgb(245, 11, 170);
  }
-.navbar {
-     margin-bottom: 0px
- }
-.brand {
-    padding-left: 60px
-}
-.navigation p {
-    padding: 10px 20px 0px;
-    color: #999;
-}
+
 /*.navigation {*/
     /*border-color: white;*/
     /*background-color: rgb(245, 11, 170);*/
@@ -74,13 +57,9 @@
     border-bottom: 2px dotted rgb(245, 11, 170);
 }
 
-.row-content {
+.all-content {
     padding: 0px 20px;
     background-color: #ffffff;
-}
-
-.main-content {
-    background-color: white;
 }
 
 .blog-heading {
@@ -113,7 +92,7 @@
     padding: 5px 0 5px 0;
 }
 
-.row-content p {
+.all-content p {
     line-height: 24px;
     font-size: 15px;
     font-family: "Adelle Sans Regular", sans-serif;
@@ -136,29 +115,22 @@
     padding-bottom: 25px;
 }
 
-.side-bar-left p {
-    line-height: 20px;
-    font-size: 16px;
-    display: block;
-    color: #999;
-    padding: 60px 0;
-    font-weight: 200;
-}
-
 .main-content a:hover{
     color: rgb(245, 11, 170);
     text-decoration: none;
 }
-.more-content {
+.blog-content {
     padding: 20px 100px 0 40px;
-
 }
-
-.blog-heading .time {
+.grey-text {
     line-height: 20px;
     font-size: 16px;
     display: block;
     color: #999;
+}
+.footer .grey {
+    font-size: 13px;
+    line-height: 17px;
 }
 
 .side-bar {
@@ -184,6 +156,11 @@
 
 .footer {
     border-top: 1px solid rgb(245, 11, 170);
-    padding: 10px 20px 5px 20px ;
+    padding: 10px 20px 0 20px ;
 
+}
+
+.footer a {
+    text-decoration: underline;
+    color: rgb(245, 11, 170);
 }

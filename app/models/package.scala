@@ -22,7 +22,7 @@ package object myApp  {
   }
 
   object DB {
-    val mongoUri = "dharma.mongohq.com:10097"
+    val mongoUri  = "dharma.mongohq.com:10097"
     val connection = MongoConnection(mongoUri)("Lindseys-Blog")
     connection.authenticate("admin","admin")
     def apply(collection: String) = connection(collection)
