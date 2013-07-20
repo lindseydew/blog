@@ -23,9 +23,7 @@ package object myApp  {
 
   object DB {
     val mongoUri  = System.getenv("mongoUri")
-    println(mongoUri)
     val connection = MongoConnection(mongoUri)("Lindseys-Blog")
-    println(connection)
     connection.authenticate("admin","admin")
     def apply(collection: String) = connection(collection)
   }
