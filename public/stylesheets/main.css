@@ -71,7 +71,7 @@
     font-weight: 500;
 }
 .blog-body h1 {
-   padding: 10px 0;
+   padding: 0 0 10px 0;
    color: #333;
 
 }
@@ -95,8 +95,11 @@
 .all-content p {
     line-height: 28px;
     font-size: 16px;
-    font-family: "Adelle Sans Regular", sans-serif;
     color: #333;
+}
+
+.all-content {
+    font-family: "Adelle Sans Regular", sans-serif;
 }
 
 .side-bar a {
@@ -134,21 +137,17 @@
     line-height: 17px;
 }
 
-.side-bar {
-    padding: 40px 0;
-}
 
-.side-bar p {
-    font-size: 18px;
-    line-height: 25px;
+.side-bar {
+    line-height: 28px;
+    font-size: 16px;
     font-family: "Adelle Sans Regular", sans-serif;
     color: #333;
-    padding: 5px 0;
+    padding: 55px 0;
 }
 
 .side-bar h1 {
     font-weight: 500;
-    color: #333;
     padding: 5px 0;
 }
 .avatar {
