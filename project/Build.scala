@@ -10,7 +10,7 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     // Add your project dependencies here,
     "com.novus" %% "salat" % "1.9.2-SNAPSHOT",
-    "com.mongodb.casbah" % "casbah_2.9.0" % "2.2.0-SNAPSHOT",
+    "org.mongodb" %% "casbah" % "2.6.2",
     "org.mongodb" % "mongo-java-driver" % "2.7.2",
     "org.planet42" %% "laika" % "0.2.0"
   )

@@ -10,7 +10,7 @@ import laika.parse.markdown.Markdown
 import laika.parse.rst.ReStructuredText
 import org.bson.types.ObjectId
 import org.joda.time.DateTime
-import com.mongodb.casbah.util.bson.conversions.RegisterConversionHelpers
+import com.mongodb.casbah.commons.conversions.scala.RegisterConversionHelpers
 import com.mongodb.casbah.commons.conversions.scala.RegisterJodaTimeConversionHelpers
 import models._
 
