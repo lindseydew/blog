@@ -2,8 +2,8 @@
 @import myApp._
 @main {
 
- @blogs.map { blog =>
     <ul class="blogs">
+        @blogs.map { blog =>
         <li>
             <div class="blog-heading">
                 <h1><a href="/blog/@blog.slug">@blog.title</a></h1><span class="grey-text">@formatTest(blog.createdOn)</span>
@@ -15,6 +15,6 @@
                 </div>
             </div>
         </li>
+        }
     </ul>
-   }
 }
