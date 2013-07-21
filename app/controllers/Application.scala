@@ -16,14 +16,11 @@ import models._
 
 
 object Application extends Controller {
-  
-  def index = Action { implicit request =>
-    Redirect(controllers.Application.blogs)
+
+  def index = Action {
+    Redirect("/blogs")
   }
 
-  def main(any: String) = Action {
-    Ok
-  }
 
   def blogs = Action {
     val blogs = BlogDAO.list
