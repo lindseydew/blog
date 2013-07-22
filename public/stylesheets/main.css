@@ -60,6 +60,10 @@
 }
 
 .blogs > li:last-child {
+    padding-top: 0px;
+}
+
+.blogs > li:last-child {
     border-bottom: None;
 }
 
