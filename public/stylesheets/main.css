@@ -56,7 +56,7 @@
 }
 .blogs li {
     border-bottom: 1px dotted rgb(245, 11, 170);
-    padding-top: 10px
+    padding-top: 20px
 }
 
 .blogs > li:first-child {

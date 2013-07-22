@@ -29,7 +29,7 @@ package object myApp  {
   }
   def formatTest(date: DateTime, pattern: String = "d MMMM, YYYY") = DateTimeFormat.forPattern(pattern).print(date)
 
-  def stripBody(blog: String) = blog.take(800)
+  def stripBody(blog: String) = blog.take(400)
 
   object Status extends Enumeration {
     type Status = Value
