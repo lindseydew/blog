@@ -28,9 +28,8 @@
 .navigation .brand {
     display: block;
     float: left;
-    font-size: 23px;
+    font-size: 25px;
     padding: 10px 20px 10px;
-    margin-left: 40px;
     font-weight: 400;
     color: #333;
     text-shadow: 0 1px 0 #fff;
@@ -86,6 +85,9 @@
 
 }
 
+/*.side-bar {*/
+    /*padding-left: 40px;*/
+/*}*/
 .side-bar h3 {
     font-weight: 500;
     color: #333;
