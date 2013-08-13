@@ -23,6 +23,7 @@ object Application extends Controller {
 
 
   def blogs = Action {
+    BlogDAO.test
     val blogs = BlogDAO.list
     Ok(views.html.blogs(blogs))
   }
