@@ -21,12 +21,12 @@ package object myApp  {
     c
   }
 
-  object DB {
-    val mongoUri  = System.getenv("mongoUri")
-    val connection = MongoConnection(mongoUri)("Lindseys-Blog")
-    connection.authenticate("admin","admin")
-    def apply(collection: String) = connection(collection)
-  }
+//  object DB {
+//    val mongoUri  = System.getenv("mongoUri")
+//    val connection = MongoConnection(mongoUri)("Lindseys-Blog")
+//    connection.authenticate("admin","admin")
+//    def apply(collection: String) = connection(collection)
+//  }
   def formatTest(date: DateTime, pattern: String = "d MMMM, YYYY") = DateTimeFormat.forPattern(pattern).print(date)
 
   def stripBody(blog: String) = blog.take(400)

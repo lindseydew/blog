@@ -4,14 +4,6 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.mvc._
 import play.api.libs.json._
-import laika.api._
-import utils.JSONParsing
-import laika.parse.markdown.Markdown
-import laika.parse.rst.ReStructuredText
-import org.bson.types.ObjectId
-import org.joda.time.DateTime
-import com.mongodb.casbah.commons.conversions.scala.RegisterConversionHelpers
-import com.mongodb.casbah.commons.conversions.scala.RegisterJodaTimeConversionHelpers
 import models._
 
 
@@ -23,45 +15,19 @@ object Application extends Controller {
 
 
   def blogs = Action {
-    BlogDAO.test
-    val blogs = BlogDAO.list
+    val blogs: List[Blog] = BlogDAO.list()
     Ok(views.html.blogs(blogs))
   }
 
 
   def blog(slug: String) = Action {
-    val blogDB = BlogDAO.bySlug(slug)
-    blogDB match {
-      case Some(b) => Ok(views.html.blog(b.blog))
+    val blog = BlogDAO.bySlug(slug)
+    blog match {
+      case Some(b) => Ok(views.html.blog(b))
       case None => BadRequest
     }
   }
 
-  def adminTest = Action {
-    Ok(views.html.addBlog())
-  }
-  
-  def edit(slug: String) = Action {
-    val blogDB = BlogDAO.bySlug(slug)
-
-    blogDB match {
-      case Some(b) => Ok(views.html.editBlog(blogForm.fill(b.blog), slug: String))
-      case None => BadRequest
-    }
-
-  }
-
-  def updateBlog(slug: String) = Action { implicit request =>
-    blogForm.bindFromRequest.fold(
-      errors => {
-        BadRequest
-      },
-      b => {
-        BlogDAO.updateBlog(b)
-        Redirect(routes.Application.blog(b.slug))
-      }
-    )
-  }
 
   //todo - put this in a more sensible place
   implicit val blogWrites = new Writes[Blog] {
@@ -113,29 +79,26 @@ object Application extends Controller {
   )
   
 
-  def newPostPlay = Action { request =>
-    Ok(views.html.newBlog(blogForm))
-  }
 
 
-  import myApp.Status._
-  def newBlog = Action { implicit request =>
-    blogForm.bindFromRequest.fold(
-      errors => {
-        println(errors)
-        BadRequest("whoops")
-      },
-      b => {
-        val body  = Transform from Markdown to laika.render.HTML fromString b.body toString()
-        val newBlog = BlogDB(new ObjectId, Blog(b.title, body, b.slug), MetaData("live", b.body))
-        println("inserting new post")
-        RegisterConversionHelpers()
-        RegisterJodaTimeConversionHelpers()
-        BlogDAO.insert(newBlog)
-        Redirect("blogs")
-      }
-    )
-  }
+//  import myApp.Status._
+//  def newBlog = Action { implicit request =>
+//    blogForm.bindFromRequest.fold(
+//      errors => {
+//        println(errors)
+//        BadRequest("whoops")
+//      },
+//      b => {
+//        val body  = Transform from Markdown to laika.render.HTML fromString b.body toString()
+//        val newBlog = BlogDB(new ObjectId, Blog(b.title, body, b.slug), MetaData("live", b.body))
+//        println("inserting new post")
+//        RegisterConversionHelpers()
+//        RegisterJodaTimeConversionHelpers()
+//      BlogDAO.insert(newBlog)
+//        Redirect("blogs")
+//      }
+//    )
+//  }
 
 //  def newPost = Action { implicit request =>
 //
