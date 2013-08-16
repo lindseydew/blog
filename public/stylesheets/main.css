@@ -76,10 +76,10 @@
     font-weight: 200;
 }
 
-.blog-heading h1 {
+.blog-heading h2 {
     font-weight: 500;
 }
-.blog-body h1 {
+.blog-body h2 {
    padding: 0 0 10px 0;
    color: #333;
 
@@ -88,10 +88,18 @@
 /*.side-bar {*/
     /*padding-left: 40px;*/
 /*}*/
-.side-bar h3 {
+.side-bar h1 {
     font-weight: 500;
     color: #333;
+    font-size: 33px;
+}
+.side-bar h1 a {
+    text-decoration: none;
+    color: #333;
+}
 
+.side-bar p {
+    padding-top: 25px;
 }
 
 .blog-heading a{
@@ -125,6 +133,24 @@
     color: rgb(245, 11, 170);
 }
 
+.read-on a {
+    text-decoration: underline;
+    color: rgb(245, 11, 170);
+}
+.read-on ul {
+    margin: 0;
+    padding: 0;
+}
+.read-on li {
+    display:inline;
+    margin-right: 120px;
+}
+body {
+    border-top: 3px solid rgb(245, 11, 170);
+    border-top: 3px solid rgb(245, 11, 170);
+    /*border: 2px;*/
+    /*color: rgb(245, 11, 170);*/
+}
 
 .blog-body {
     padding-bottom: 25px;
@@ -162,12 +188,14 @@
 .all-content {
     padding-top: 60px;
 }
-.side-bar h1 {
+.side-bar h {
     font-weight: 500;
     padding: 5px 0;
 }
 .avatar {
-    width: 110px;
+    width: 125px;
+    margin: 20px;
+
 }
 
 .footer {

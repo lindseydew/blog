@@ -8,25 +8,27 @@
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
     <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/shoe-icon-bubble.png")">
+    <link href="css/bootstrap.icon-large.min.css" rel="stylesheet">
+
             <title>Lindsey's Blog</title>
 </head>
 <body>
 
-    <div class="navigation">
+   <!-- <div class="navigation">
             <a class="brand" href="/blogs">Lindsey's Blog</a>
-     </div>
+     </div> --!>
 
     <div class="row all-content">
-            <div class="span3 offset1 side-bar">
-            <img class="avatar" src="@routes.Assets.at("images/cartoon-me.png")">
-            <h1>Lindsey</h1>
+            <div class="span4 offset1 side-bar">
+            <img class="avatar" src="@routes.Assets.at("images/red-dress-not-looking.jpg")">
+            <h1><a href="/blogs">Lindsey Dew</a></h1>
             <p>Software developer at <br> <a href="http://www.guardian.co.uk/profile/lindsey-dew">The Guardian</a></p>
             <!--   <p><a href="https://github.com/lindseydew" class="github-follow-button">Follow On GitHub</a>
     <script type="text/javascript" src="http://octophile.com/widgets.js"></script></p>      -->
 <p><a href="https://twitter.com/lindsey_dew" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>
 </div>
-            <div class="span9 offset2">
+            <div class="span9 offset1">
                 <div class="blog-content">
                     @content
                 </div>
@@ -36,7 +38,7 @@
     </div>
             
     <div class="footer">
-        <p class="grey"><img src="@routes.Assets.at("images/shoe-icon-bubble.png")"> Lindsey's Blog - like a wordpress site, but with less functionality. Made with Play, MongoDB and Twitter Bootstrap. Also available in <a href="/api/blogs"> json </a></p>
+        <p class="grey"><img src="@routes.Assets.at("images/shoe-icon-bubble.png")"> Lindsey's Blog - like a wordpress site, but with less functionality. Made with Play, MongoDB and Twitter Bootstrap and <a href="http://www.glyphicons.com">glyphicons</a>. Also available in <a href="/api/blogs"> json </a></p>
      </div>
 
 </body
