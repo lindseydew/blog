@@ -1,7 +1,5 @@
 package models
 
-import com.novus.salat._
-import com.mongodb.casbah.MongoConnection
 import play.api.Play.current
 import play.api.Play
 import com.mongodb.casbah.commons.Imports._
@@ -13,13 +11,13 @@ package object myApp  {
 
   implicit val wc: WriteConcern = WriteConcern.NORMAL
 
-  implicit val ctx = {
-    val c = new Context() {
-      val name ="play-context"
-    }
-    c.registerClassLoader(Play.classloader)
-    c
-  }
+//  implicit val ctx = {
+//    val c = new Context() {
+//      val name ="play-context"
+//    }
+//    c.registerClassLoader(Play.classloader)
+//    c
+//  }
 
 //  object DB {
 //    val mongoUri  = System.getenv("mongoUri")

@@ -12,6 +12,17 @@
     background-image: url("/assets/images/blog-image-resize.jpg");
 }
 
+.web-icons li {
+    display:inline;
+    margin-right: 20px;
+
+}
+.web-icons ul {
+    margin: 0;
+    padding-top: 20px;
+
+}
+
 
 /*.navbar-inner {*/
     /*border-bottom: 1px solid rgb(245, 11, 170);*/
@@ -98,8 +109,18 @@
     color: #333;
 }
 
+.side-bar h1 a:hover {
+    color: rgb(245, 11, 170);
+}
+
+
+.side-bar li a {
+    text-decoration: none;
+}
+
 .side-bar p {
     padding-top: 25px;
+    padding-bottom: 20px;
 }
 
 .blog-heading a{
