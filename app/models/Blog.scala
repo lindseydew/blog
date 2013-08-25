@@ -46,27 +46,27 @@ object Blog  {
     new DateTime(new SimpleDateFormat("dd/MM/yyyy").parse(d))
   }
 
-  private val vaildSlug = "([-|\\w]+)".r
-   //todo - exception handling
+  private val validSlug = "([-|\\w]+)".r
     def apply(f: File): Option[Blog] = {
      val fileName = f.getName()
      try {
        val source = io.Source.fromFile(f)
-       val contents = source.getLines().toList
+       val contents = source.mkString.split("---").toList
        source.close()
        try {
          contents match {
-           case title :: vaildSlug(slug) :: created :: Nil => {
-            println("no content for slug " + slug)
-            None
-           }
-           case title :: vaildSlug(slug) :: created :: post => {
-             Some(Blog(title, renderContent(post.mkString), slug, parseDate(created)))
-           }
-           case _ :: badSlug :: _ :: _ => {
-             println("could not parse blog " + fileName + " because of bad slug " + badSlug)
-             None
-          }
+           case metadata :: post :: Nil=> {
+             val data: List[String] = metadata.split("\n").toList
+             data match {
+               case title :: validSlug(slug) :: date :: Nil =>
+                 Some(Blog(title, renderContent(post), slug, parseDate(date)))
+               case _ => {
+                 println("format error")
+                 None
+               }
+             }
+           }  
+     
            case _ => {
              println("I failed to parse blog " + fileName)
              None

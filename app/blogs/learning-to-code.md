@@ -1,6 +1,7 @@
 Learning To Code
 learning-to-code
 14/08/2013
+---
 A lot of people ask me how I got 'into tech', and I never quite know how to respond. Partly because I expect the inquisitor is anticipating to reel off a list of qualifications and experiences I had before I started working as a web developer. But the answer is much simpler. I just applied for a trainee role in the field. It's true that of tech companies hire for transferable analytic skills and aptitude, rather than specific language skills, but most people I speak to seem to be surprised to hear I could learn to programme on the job.
 
 It was a steep learning curve at the beginning, but after a while it started to fall into place and stopped feeling like a complete mystery.
