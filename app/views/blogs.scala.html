@@ -1,4 +1,4 @@
- @(blogs: List[Blog])
+@(blogs: List[Blog])
 @import myApp._
 @main {
 
@@ -10,7 +10,7 @@
             </div>
             <div class="blog-body">
                 @Html(stripBody(blog.body))...
-                <div class="read-on">
+                <div class="read-more">
                     <p><a href="/blog/@blog.slug">Read more →</a></p>
                 </div>
             </div>

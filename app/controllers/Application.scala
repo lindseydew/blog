@@ -21,10 +21,14 @@ object Application extends Controller {
 
 
   def blog(slug: String) = Action {
-    val blog = Blog.bySlug(slug)
-    blog match {
-      case Some(b) => Ok(views.html.blog(b))
-      case None => BadRequest
+    Blog.bySlug(slug) match {
+      case Some(blog) => {
+        val nextAndPrev = Blog.getPrevAndNext(slug)
+        Ok(views.html.blog(blog, nextAndPrev._2, nextAndPrev._1))
+      }
+      case None => {
+        BadRequest
+      }
     }
   }
 

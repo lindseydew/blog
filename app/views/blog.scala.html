@@ -1,4 +1,4 @@
-@(blog: Blog)
+@(blog: Blog, next: Option[Blog], prev: Option[Blog])
 @import myApp._
 @main {
         <div class="blog-heading">
@@ -7,9 +7,24 @@
         <div class="blog-body">
             @Html(blog.body)
         </div>
-        <ul class="read-on">
-          <li>
-              <a href="/blogs">← all blogs</a>
-          </li>
-        </ul>
+          <div class="read-on">
+              <span class="icon left">
+                  @if(prev.isDefined) {
+                 <a href="/blog/@prev.get.slug"><i class="icon-long-arrow-left"></i></a>
+                  }
+              </span>
+              <span class="non-icon">
+                 <a href="/blogs">all blogs</a>
+              </span>
+
+              @if(next.isDefined) {
+              <span class="icon right">
+                  <a href="/blog/@next.get.slug"><i class="icon-long-arrow-right"></i></a>
+              </span>
+              }
+
+          </div>
+
+
+
     }

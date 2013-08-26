@@ -1,10 +1,8 @@
 package models
 
-import myApp._
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 
-import Status._
 import scala.io.Source
 
 import laika.api.Transform
@@ -39,6 +37,16 @@ object Blog  {
     allBlogs.find(_.slug==slug)
   }
 
+
+  def getPrevAndNext(slug: String) = {
+    allBlogs.span(_.slug != slug) match {
+      case (Nil,x::y::rest) => (None,Some(y))
+      case (left,x::y::rest) => (Some(left.last),Some(y))
+      case (left,x::rest) => (Some(left.last),None)
+      case _ => (None,None)
+    }
+  }
+  
   def renderContent(post: String): String = {
     Transform from Markdown to laika.render.HTML fromString post toString()
   }
@@ -66,7 +74,6 @@ object Blog  {
                }
              }
            }  
-     
            case _ => {
              println("I failed to parse blog " + fileName)
              None
