@@ -73,14 +73,14 @@ object Application extends Controller {
     Ok(Json.obj("status" -> "OK", "data" -> blogs))
   }
 
-  val blogForm = Form(
-    mapping(
-      "title" -> text,
-      "post" -> text,
-      "slug" -> text
-    ){ (title: String, post: String, slug:String) => Blog(title, post, slug) }
-    { (blog: Blog) => Some(blog.title, blog.body, blog.slug) }
-  )
+//  val blogForm = Form(
+//    mapping(
+//      "title" -> text,
+//      "post" -> text,
+//      "slug" -> text
+//    ){ (title: String, post: String, slug:String) => Blog(title, post, slug) }
+//    { (blog: Blog) => Some(blog.title, blog.body, blog.slug) }
+//  )
   
 
 

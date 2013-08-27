@@ -21,7 +21,7 @@ and [our first impressions](http://www.theguardian.com/info/developer-blog/2012/
 and our final thoughts [here](http://www.theguardian.com/info/developer-blog/2012/nov/02/functional-programming-scala-the-final-push).
 
 I had a lot of fun doing the course, and it has certainly helped me get a better appreciation of how to apply
-functional programming techniques into web development. I would definitely be interested in a follow up course, which
+functional programming techniques to web development. I would definitely be interested in a follow up course, which
 delves a little deeper into the internals of Scala, or one that sheds some light on [sbt](www.scala-sbt.org).
 
 I'd recommend the course to anyone wanting to pick up Scala, or just interested in broadening their programming skills.

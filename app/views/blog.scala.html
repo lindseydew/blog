@@ -10,7 +10,7 @@
           <div class="read-on">
               <span class="icon left">
                   @if(prev.isDefined) {
-                 <a href="/blog/@prev.get.slug"><i class="icon-long-arrow-left"></i></a>
+                 <a href="/blog/@prev.get.slug" title="@prev.get.title"><i class="icon-long-arrow-left"></i></a>
                   }
               </span>
               <span class="non-icon">
@@ -19,7 +19,7 @@
 
               @if(next.isDefined) {
               <span class="icon right">
-                  <a href="/blog/@next.get.slug"><i class="icon-long-arrow-right"></i></a>
+                  <a href="/blog/@next.get.slug" title="@next.get.title"><i class="icon-long-arrow-right"></i></a>
               </span>
               }
 

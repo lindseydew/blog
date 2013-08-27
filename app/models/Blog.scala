@@ -3,34 +3,31 @@ package models
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 
-import scala.io.Source
 
 import laika.api.Transform
 import laika.parse.markdown.Markdown
 import java.io.{IOException, FileNotFoundException, File}
 
 import java.text.SimpleDateFormat
-
+import io.{BufferedSource, Source}
 
 
 case class Blog (title: String,
                  body: String,
                  slug: String,
-                 createdOn: DateTime = DateTime.now()
+                 createdOn: DateTime
                  )
 
 object Blog  {
 
   lazy val allBlogs: List[Blog] = {
-    getBlogsFromDir(new File("app/blogs"))
+     getBlogsFromDir(new File("app/blogs"))
     .sortWith((b1, b2) => b1.createdOn.isAfter(b2.createdOn))
   }
 
   def getBlogsFromDir(f: File): List[Blog] = {
-    val files = f.listFiles().toList
-                .filter(_.getName.endsWith(".md"))
-
-    files.flatMap(Blog.apply(_))
+    val files: List[File] = f.listFiles().toList
+    files.flatMap(f=> Blog.apply(io.Source.fromFile(f)))
   }
   
   def bySlug(slug: String): Option[Blog] = {
@@ -55,49 +52,38 @@ object Blog  {
   }
 
   private val validSlug = "([-|\\w]+)".r
-    def apply(f: File): Option[Blog] = {
-     val fileName = f.getName()
+  private val validDate = "([0-3][0-9]/[0-1][0-9]/[2][0][0-9][0-9])".r
+    def apply(contents: BufferedSource): Option[Blog] = {
      try {
-       val source = io.Source.fromFile(f)
-       val contents = source.mkString.split("---").toList
-       source.close()
-       try {
-         contents match {
-           case metadata :: post :: Nil=> {
-             val data: List[String] = metadata.split("\n").toList
-             data match {
-               case title :: validSlug(slug) :: date :: Nil =>
-                 Some(Blog(title, renderContent(post), slug, parseDate(date)))
-               case _ => {
-                 println("format error")
-                 None
-               }
+       contents.mkString.split("---").toList match {
+         case metadata :: post :: Nil=> {
+           val data: List[String] = metadata.split("\n").toList
+           data match {
+             case title :: validSlug(slug) :: validDate(date) :: Nil =>
+               Some(Blog(title, renderContent(post), slug, parseDate(date)))
+             case _ :: badSlug :: validDate(date) :: Nil => {
+               println("could not parse blog due to bad slug " + badSlug)
+               None
              }
-           }  
-           case _ => {
-             println("I failed to parse blog " + fileName)
-             None
+             case _ :: slug :: badDate :: Nil =>
+              println("could not parse blog due to bad date " + badDate + " with slug " + slug)
+              None
            }
          }
-       }
-       catch{
-         case ex: Throwable =>{
-           println(ex.printStackTrace())
+         case _ => {
+           println("Structure of the post not in the correct format ")
            None
          }
        }
      }
-
-     catch  {
-       case _: FileNotFoundException => {
-         println("No such file " + f.getName() )
-         None
-       }
-       case ex: IOException => {
+     catch{
+       case ex: Throwable =>{
          println(ex.printStackTrace())
          None
        }
      }
    }
+
+
 }
 
