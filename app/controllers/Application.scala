@@ -23,11 +23,11 @@ object Application extends Controller {
   def blog(slug: String) = Action {
     Blog.bySlug(slug) match {
       case Some(blog) => {
-        val nextAndPrev = Blog.getPrevAndNext(slug)
-        Ok(views.html.blog(blog, nextAndPrev._2, nextAndPrev._1))
+        val n: Navigation = Blog.getPrevAndNext(slug)
+        Ok(views.html.blog(blog, n.prev, n.next))
       }
       case None => {
-        BadRequest
+        NotFound(views.html.notFound())
       }
     }
   }

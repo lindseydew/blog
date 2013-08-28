@@ -2,7 +2,7 @@ Scaling with confidence
 scaling-with-confidence
 20/08/2013
 ---
-Writing software that works on 'my machine' versus writing software that just works can be very different challenges. Hack days are proof that
+Writing software that works on 'my machine' versus writing software that just works are not the same thing. Hack days are proof that
 devs can get a fairly decent application working in a day or even a couple of hours. But taking that piece of software, and
 getting that to run smoothly for thousands or millions of users, on many variations of browsers, and suddenly it's a whole
 different challenge.
@@ -27,7 +27,7 @@ some visibility of how your app is performing at scale.
 *Know your logs:* Making sure your app logs useful messages at error points, and being confident about how to search through
 your logs can make a big difference to resolving unexpected/peculiar issues quickly.
 
-*Attaching Unique Header:* If your client's request needs to go through multiple services to respond, then even ascertaining
+*Attaching Unique Header:* If your client's request needs to go through multiple services for a response, then even ascertaining
 which app has a failure point can be difficult. Attaching a unique header to these requests at the first point of contact service,
 and then logging this via all the services the request calls, can help trace these and spot the origin of the error. This can be
 particularly useful in spotting the cause of slow responses.

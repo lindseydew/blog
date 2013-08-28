@@ -18,6 +18,8 @@ case class Blog (title: String,
                  createdOn: DateTime
                  )
 
+case class Navigation(prev: Option[Blog], next: Option[Blog])
+
 object Blog  {
 
   lazy val allBlogs: List[Blog] = {
@@ -35,12 +37,12 @@ object Blog  {
   }
 
 
-  def getPrevAndNext(slug: String) = {
+  def getPrevAndNext(slug: String): Navigation = {
     allBlogs.span(_.slug != slug) match {
-      case (Nil,x::y::rest) => (None,Some(y))
-      case (left,x::y::rest) => (Some(left.last),Some(y))
-      case (left,x::rest) => (Some(left.last),None)
-      case _ => (None,None)
+      case (Nil,x::y::rest) => Navigation(None,Some(y))
+      case (left,x::y::rest) => Navigation(Some(left.last),Some(y))
+      case (left,x::rest) => Navigation(Some(left.last),None)
+      case _ => Navigation(None,None)
     }
   }
   
