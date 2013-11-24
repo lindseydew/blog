@@ -102,7 +102,6 @@
 .side-bar h1 {
     font-weight: 500;
     color: #333;
-    font-size: 33px;
 }
 .side-bar h1 a {
     text-decoration: none;
@@ -112,7 +111,6 @@
 .side-bar h1 a:hover {
     color: rgb(245, 11, 170);
 }
-
 
 .side-bar li a {
     text-decoration: none;
