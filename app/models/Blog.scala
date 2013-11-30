@@ -15,15 +15,14 @@ import io.{BufferedSource, Source}
 case class Blog (title: String,
                  body: String,
                  slug: String,
-                 createdOn: DateTime
-                 )
+                 createdOn: DateTime )
 
 case class Navigation(prev: Option[Blog], next: Option[Blog])
 
 object Blog  {
 
   lazy val allBlogs: List[Blog] = {
-     getBlogsFromDir(new File("app/blog"))
+     getBlogsFromDir(new File("app/blogs"))
     .sortWith((b1, b2) => b1.createdOn.isAfter(b2.createdOn))
   }
 
