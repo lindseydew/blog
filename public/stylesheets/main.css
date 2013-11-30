@@ -4,7 +4,9 @@
 }
 
 /* styling to do with the HEADER */
-
+.h {
+    font-weight: 500;
+}
 .header {
     margin-top: 0px;
     padding: 20px 15px 45px;
@@ -85,6 +87,10 @@
 .blog-heading {
     padding: 0 0 20px;
     font-weight: 200;
+}
+
+.blog-content h2 {
+   font-weight: 500;
 }
 
 .blog-heading h2 {

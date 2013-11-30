@@ -13,7 +13,9 @@ object Application extends Controller {
     Redirect("/blogs")
   }
 
-
+  def management = Action {
+    Ok(views.html.management())
+  }
   def blogs = Action {
     val blogs: List[Blog] = Blog.allBlogs
     Ok(views.html.blogs(blogs))

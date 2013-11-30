@@ -12,8 +12,7 @@ object ApplicationBuild extends Build {
 //    "com.novus" %% "salat" % "1.9.2-SNAPSHOT",
     "org.mongodb" %% "casbah" % "2.6.2",
     "org.mongodb" % "mongo-java-driver" % "2.7.2",
-    "org.planet42" %% "laika" % "0.2.0",
-    "org.yaml" % "snakeyaml" % "1.13-SNAPSHOT"
+    "org.planet42" %% "laika" % "0.2.0"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(defaultScalaSettings:_*).settings(

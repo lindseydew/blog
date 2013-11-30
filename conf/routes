@@ -11,5 +11,6 @@ GET     /                           controllers.Application.index
 GET     /blogs                      controllers.Application.blogs
 GET     /api/blogs                  controllers.Application.apiblogs
 GET     /blog/:slug                 controllers.Application.blog(slug: String)
+GET     /management                 controllers.Application.management
 
 #GET     /*any                       controllers.Application.main(any)
