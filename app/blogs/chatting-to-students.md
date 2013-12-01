@@ -14,10 +14,10 @@ the door, but they didn't particularly know about the options available outside 
 
 The students seemed to have a pretty skewed visibility of industry and saw only companies they had the resources to actively court
 grads with their particular subject discipline or teaching as their post-uni options. It was difficult to convince the
-students that actually recruiters weren't looking for a hard and fast set of requirements in their candidates, and actually
-there are very few careers where a specific degree is an essential pre-requisite (medicine, dentistry excluded). Many of
-the students I spoke to believed it was important that they decided their career path before graduating. Whilst I think it's good to encourage students to prepare for life outside of education, I think this needs to coincided
-encourage students to have an open mind and try things. Stepping out of university and into working life is daunting enough
+students that actually recruiters weren't looking for a hard and fast set of requirements in their candidates, and that
+having a specific degree isn't usually an essential pre-requisite (medicine, dentistry etc excluded). Many of
+the students I spoke to believed it was important that they decided their career path before graduating. Whilst I think it's good to encourage students to prepare for life outside of education, I think this needs to be coincided
+with encouragement to have an open mind and try things. Stepping out of university and into working life is daunting enough
 without being told you need to 'be immediately successful'.
 
 What was encouraging though, was the genuine interest some of the students had for a career in technology, but many believed
