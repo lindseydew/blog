@@ -1,6 +1,6 @@
 Scalala
 scalala
-26/08/2013
+10/08/2013
 ---
 Scala was the first server side language for web development that I was introduced to, and I was immediately intrigued.
 The functional style of the language appealed to my mathsy side, and even on first glance, I
