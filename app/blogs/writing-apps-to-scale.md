@@ -1,4 +1,4 @@
-Scaling with confidence
+Scaling With Confidence
 scaling-with-confidence
 20/08/2013
 ---
