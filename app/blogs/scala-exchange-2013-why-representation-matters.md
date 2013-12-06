@@ -26,9 +26,11 @@ fit a 'stereotype' is superficial, wrong and could be potentially damaging.
 
 What I am advocating though, is to notice this distribution and question it.
 
+
 ####Why is the community so under-representative of women?
 Well there are less women in IT generally. True, but 17% of our IT workforce are made up of women. I'm going to
 take a generous estimate at maybe 5% of the attendees of this conference were women.
+
 
 ####Maybe women just aren't interested in Scala?
 Maybe. But of the thousands of people that completed Martin Ordersky's course in
@@ -40,6 +42,7 @@ Scala is growing rapidly. The number of Scala developer jobs in London has grown
 Conference speakers noted just how much bigger the attendance was this year was compared to a few years ago.
 There's a real demand for this skill now and if we don't match the supply with a diverse range of people we're
 throwing away potential talent and the situation we have now will perpetuate.
+
 
 ####So what can be done?
 Yeah. This one is tough to answer, and I think it's something that needs to be addressed at its core. In the same way that
