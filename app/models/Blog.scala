@@ -10,6 +10,9 @@ import java.io.{IOException, FileNotFoundException, File}
 
 import java.text.SimpleDateFormat
 import io.{BufferedSource, Source}
+import java.net.URL
+import play.api.Play
+import play.api.Play.current
 
 
 case class Blog (title: String,
@@ -22,7 +25,8 @@ case class Navigation(prev: Option[Blog], next: Option[Blog])
 object Blog  {
 
   lazy val allBlogs: List[Blog] = {
-     getBlogsFromDir(new File("app/blogs"))
+     val url = Play.getFile("resources/blogs")
+     getBlogsFromDir(new File(url.toURI))
     .sortWith((b1, b2) => b1.createdOn.isAfter(b2.createdOn))
   }
 
