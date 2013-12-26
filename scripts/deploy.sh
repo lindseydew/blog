@@ -10,3 +10,5 @@ cd blog
 chmod +x target/start
 sudo service lindseysblog restart
 rm -rf blog.orig
+
+
