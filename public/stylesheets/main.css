@@ -1,36 +1,45 @@
-.main-content {
-    border-right: 1px dotted;
-    border-color: rgb(245, 11, 170);
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
 }
 
-/* styling to do with the HEADER */
-.h {
+html, body {
+    height: 100%;
+    border-top: 2px solid rgb(245, 11, 170);
+    font-family: "Adelle Sans Regular", sans-serif;
+    color: #333;
+
+}
+
+h1, h2 {
     font-weight: 500;
 }
-.header {
-    margin-top: 0px;
-    padding: 20px 15px 45px;
-    font-family: Helvetica;
-    background-image: url("/assets/images/blog-image-resize.jpg");
+h1 { margin-bottom: 1em; font-size: 215%}
+p {
+    padding: 5px 0 5px 0;
+    line-height: 28px;
+    font-size: 16px;
+}
+
+a         { color: rgb(245, 11, 170); text-decoration: underline;}
+a:hover   { color: rgb(245, 11, 170); }
+a:visited { color: rgb(245, 11, 170); }
+
+ul {
+    margin: 0;
+    padding: 0 0 20px 0;
 }
 
 .web-icons li {
     display:inline;
     margin-right: 20px;
-
 }
 .web-icons ul {
     margin: 0;
     padding-top: 20px;
-
 }
 
-
-/*.navbar-inner {*/
-    /*border-bottom: 1px solid rgb(245, 11, 170);*/
-    /*background-color: rgb(245, 11, 170);*/
-    /*-webkit-border-radius: 0px;*/
-/*}*/
 .navigation {
     min-height: 45px;
     padding-right: 20px;
@@ -44,23 +53,14 @@
     font-size: 25px;
     padding: 10px 20px 10px;
     font-weight: 400;
-    color: #333;
     text-shadow: 0 1px 0 #fff;
     padding-left: 60px;
-    font-family: "Adelle Sans Regular", sans-serif;
 }
 .brand:hover {
     text-decoration: none;
     color: rgb(245, 11, 170);
  }
 
-/*.navigation {*/
-    /*border-color: white;*/
-    /*background-color: rgb(245, 11, 170);*/
-/*}*/
-/*.navigation a {*/
-    /*font-color: rgb(50, 3, 61);*/
-/*}*/
 .blogs  {
     list-style: none;
     margin: 0px;
@@ -81,7 +81,6 @@
 
 .all-content {
     padding: 0px 20px;
-    background-color: #ffffff;
 }
 
 .blog-heading {
@@ -89,71 +88,26 @@
     font-weight: 200;
 }
 
-.blog-content h2 {
-   font-weight: 500;
-}
-
-.blog-heading h2 {
-    font-weight: 500;
-}
 .blog-body h2 {
    padding: 0 0 10px 0;
-   color: #333;
-
 }
 
-/*.side-bar {*/
-    /*padding-left: 40px;*/
-/*}*/
-.side-bar h1 {
-    font-weight: 500;
-    color: #333;
-    font-size: 33px;
+.side-bar h1 a:hover {
+    color: rgb(245, 11, 170);
 }
 .side-bar h1 a {
     text-decoration: none;
     color: #333;
 }
 
-.side-bar h1 a:hover {
-    color: rgb(245, 11, 170);
-}
-
-
 .side-bar li a {
     text-decoration: none;
-}
-
-.side-bar p {
-    padding-top: 25px;
-    padding-bottom: 20px;
 }
 
 .blog-heading a{
    color: #333;
    text-decoration: none;
-
 }
-
-.blog-body p{
-    padding: 5px 0 5px 0;
-}
-
-.all-content p {
-    line-height: 28px;
-    font-size: 16px;
-    color: #333;
-}
-
-.all-content {
-    font-family: "Adelle Sans Regular", sans-serif;
-}
-
-.side-bar a {
-    text-decoration: underline;
-    color: rgb(245, 11, 170);
-}
-
 
 .blog-body a {
     text-decoration: underline;
@@ -161,25 +115,19 @@
 }
 
 .read-on .non-icon a {
-    text-decoration: underline;
-    color: rgb(245, 11, 170);
     font-size: 16px;
     left:50%;
     position: absolute;
     margin-left: -10px;
-
-
    }
 
 .read-on .left {
     left: 0;
     position: absolute;
-
 }
 .read-on .right {
     right: 0;
     position: absolute;
-
 }
 .read-on {
     position: relative;
@@ -195,17 +143,6 @@
     text-decoration: none;
     color: rgb(245, 11, 170);
     font-size: 23px;
-}
-ul {
-    margin: 0;
-    padding: 0 0 20px 0;
-}
-
-body {
-    border-top: 3px solid rgb(245, 11, 170);
-    border-top: 3px solid rgb(245, 11, 170);
-    /*border: 2px;*/
-    /*color: rgb(245, 11, 170);*/
 }
 
 
@@ -232,20 +169,13 @@ body {
 .side-bar {
     line-height: 28px;
     font-size: 16px;
-    font-family: "Adelle Sans Regular", sans-serif;
-    color: #333;
-
-
 }
 
 .all-content {
     padding-top: 60px;
     padding-bottom: 20px;
 }
-.side-bar h {
-    font-weight: 500;
-    padding: 5px 0;
-}
+
 .avatar {
     width: 125px;
     margin-left: 30px;
@@ -257,7 +187,6 @@ body {
 .footer {
     border-top: 1px solid rgb(245, 11, 170);
     padding: 10px 20px 0 20px ;
-
 }
 
 .footer a {
