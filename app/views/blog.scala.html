@@ -2,7 +2,7 @@
 @import myApp._
 @main {
         <div class="blog-heading">
-            <h2>@blog.title</h2><span class="grey-text">@formatTest(blog.createdOn)</span>
+            <h2>@blog.title</h2><span class="date-text">@formatTest(blog.createdOn)</span>
         </div>
         <div class="blog-body">
             @Html(blog.body)
