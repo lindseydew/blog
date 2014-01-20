@@ -6,7 +6,7 @@
         @blogs.map { blog =>
         <li>
             <div class="blog-heading">
-                <h2><a href="/blog/@blog.slug">@blog.title</a></h2><span class="grey-text">@formatTest(blog.createdOn)</span>
+                <h2><a href="/blog/@blog.slug">@blog.title</a></h2><span class="date-text">@formatTest(blog.createdOn)</span>
             </div>
             <div class="blog-body">
                 @Html(stripBody(blog.body))...

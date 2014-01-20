@@ -9,26 +9,37 @@ import java.io.File
 
 import java.text.SimpleDateFormat
 import io.{BufferedSource, Source}
+import java.net.URL
+import play.api.Play
+import play.api.Play.current
 
 
 case class Blog (title: String,
                  body: String,
                  slug: String,
-                 createdOn: DateTime
-                 )
+                 createdOn: DateTime )
 
 case class Navigation(prev: Option[Blog], next: Option[Blog])
 
 object Blog  {
 
   lazy val allBlogs: List[Blog] = {
-     getBlogsFromDir(new File("app/blogs"))
+     val url = Play.getFile("resources/blogs")
+     getBlogsFromDir(new File(url.toURI))
     .sortWith((b1, b2) => b1.createdOn.isAfter(b2.createdOn))
   }
 
-  def getBlogsFromDir(f: File): List[Blog] = {
-    val files: List[File] = f.listFiles().toList
-    files.flatMap(f=> Blog.apply(io.Source.fromFile(f)))
+  def getBlogsFromDir(dir: File): List[Blog] = {
+    val files = Option(dir.listFiles())
+    files match {
+      case Some(fs) => {
+        (for(f <- fs;
+             contents = io.Source.fromFile(f);
+             blog <- Blog.apply(contents)
+        ) yield blog).toList
+      }
+      case None => Nil
+    }
   }
   
   def bySlug(slug: String): Option[Blog] = {

@@ -1,64 +1,82 @@
-.main-content {
-    border-right: 1px dotted;
-    border-color: rgb(245, 11, 170);
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
 }
 
-/* styling to do with the HEADER */
+html, body {
+    height: 100%;
+    border-top: 2px solid rgb(245, 11, 170);
+    font-family: "Adelle Sans Regular", sans-serif;
+    color: #333;
 
-.header {
-    margin-top: 0px;
-    padding: 20px 15px 45px;
-    font-family: Helvetica;
-    background-image: url("/assets/images/blog-image-resize.jpg");
 }
 
+h1, h2 {
+    font-weight: 500;
+}
+h1 { margin-bottom: 1em; font-size: 215%}
+p {
+    padding: 5px 0 5px 0;
+    line-height: 28px;
+    font-size: 16px;
+}
+
+a         { color: rgb(245, 11, 170); text-decoration: underline;}
+a:hover   { color: rgb(245, 11, 170); }
+a:visited { color: rgb(245, 11, 170); }
+
+ul {
+    margin: 0;
+    padding: 0 0 20px 0;
+}
+/*SIDE BAR*/
+.side-bar {
+    line-height: 28px;
+    font-size: 16px;
+}
+.side-bar h1 a:hover {
+    color: rgb(245, 11, 170);
+}
+.side-bar h1 a {
+    text-decoration: none;
+    color: #333;
+}
+.side-bar li a {
+    text-decoration: none;
+}
+.avatar {
+    width: 125px;
+    margin-left: 30px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
 .web-icons li {
     display:inline;
     margin-right: 20px;
-
 }
 .web-icons ul {
     margin: 0;
     padding-top: 20px;
-
 }
 
 
-/*.navbar-inner {*/
-    /*border-bottom: 1px solid rgb(245, 11, 170);*/
-    /*background-color: rgb(245, 11, 170);*/
-    /*-webkit-border-radius: 0px;*/
-/*}*/
-.navigation {
-    min-height: 45px;
-    padding-right: 20px;
-    padding-left: 20px;
-    background-color: #E9E9E9;
-    border-bottom: 1px solid rgb(245, 11, 170);
+/*FOOTER*/
+.footer {
+    border-top: 1px solid rgb(245, 11, 170);
+    padding: 10px 20px 0 20px ;
 }
-.navigation .brand {
-    display: block;
-    float: left;
-    font-size: 25px;
-    padding: 10px 20px 10px;
-    font-weight: 400;
-    color: #333;
-    text-shadow: 0 1px 0 #fff;
-    padding-left: 60px;
-    font-family: "Adelle Sans Regular", sans-serif;
-}
-.brand:hover {
-    text-decoration: none;
+
+.footer a {
+    text-decoration: underline;
     color: rgb(245, 11, 170);
- }
+}
+.footer .grey {
+    font-size: 13px;
+    line-height: 17px;
+}
 
-/*.navigation {*/
-    /*border-color: white;*/
-    /*background-color: rgb(245, 11, 170);*/
-/*}*/
-/*.navigation a {*/
-    /*font-color: rgb(50, 3, 61);*/
-/*}*/
+/*BLOGS*/
 .blogs  {
     list-style: none;
     margin: 0px;
@@ -76,104 +94,43 @@
 .blogs > li:last-child {
     border-bottom: None;
 }
-
-.all-content {
-    padding: 0px 20px;
-    background-color: #ffffff;
+.read-more {
+    padding-bottom: 20px;
+}
+.date-text {
+    line-height: 25px;
+    font-size: 18px;
+    display: block;
+    color: #999;
 }
 
+/*BLOG*/
 .blog-heading {
     padding: 0 0 20px;
     font-weight: 200;
 }
 
-.blog-heading h2 {
-    font-weight: 500;
-}
 .blog-body h2 {
-   padding: 0 0 10px 0;
-   color: #333;
-
+    padding: 0 0 10px 0;
 }
 
-/*.side-bar {*/
-    /*padding-left: 40px;*/
-/*}*/
-.side-bar h1 {
-    font-weight: 500;
-    color: #333;
-    font-size: 33px;
-}
-.side-bar h1 a {
-    text-decoration: none;
-    color: #333;
-}
-
-.side-bar h1 a:hover {
-    color: rgb(245, 11, 170);
-}
-
-
-.side-bar li a {
-    text-decoration: none;
-}
-
-.side-bar p {
-    padding-top: 25px;
-    padding-bottom: 20px;
-}
 
 .blog-heading a{
-   color: #333;
-   text-decoration: none;
-
-}
-
-.blog-body p{
-    padding: 5px 0 5px 0;
-}
-
-.all-content p {
-    line-height: 28px;
-    font-size: 16px;
     color: #333;
+    text-decoration: none;
 }
-
-.all-content {
-    font-family: "Adelle Sans Regular", sans-serif;
-}
-
-.side-bar a {
-    text-decoration: underline;
-    color: rgb(245, 11, 170);
-}
-
 
 .blog-body a {
     text-decoration: underline;
     color: rgb(245, 11, 170);
 }
 
-.read-on .non-icon a {
-    text-decoration: underline;
-    color: rgb(245, 11, 170);
-    font-size: 16px;
-    left:50%;
-    position: absolute;
-    margin-left: -10px;
-
-
-   }
-
-.read-on .left {
-    left: 0;
-    position: absolute;
-
-}
-.read-on .right {
-    right: 0;
-    position: absolute;
-
+.navigation {
+    min-height: 45px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #E9E9E9;
+    border-bottom: 1px solid rgb(245, 11, 170);
 }
 .read-on {
     position: relative;
@@ -182,26 +139,28 @@
     padding-top: 10px;
 
 }
-.read-more {
-    padding-bottom: 20px;
+
+.read-on .non-icon a {
+    font-size: 16px;
+    left:50%;
+    position: absolute;
+    margin-left: -10px;
+   }
+
+.read-on .left {
+    left: 0;
+    position: absolute;
 }
+.read-on .right {
+    right: 0;
+    position: absolute;
+}
+
 .read-on .icon a {
     text-decoration: none;
     color: rgb(245, 11, 170);
     font-size: 23px;
 }
-ul {
-    margin: 0;
-    padding: 0 0 20px 0;
-}
-
-body {
-    border-top: 3px solid rgb(245, 11, 170);
-    border-top: 3px solid rgb(245, 11, 170);
-    /*border: 2px;*/
-    /*color: rgb(245, 11, 170);*/
-}
-
 
 .blog-heading a:hover{
     color: rgb(245, 11, 170);
@@ -211,50 +170,12 @@ body {
     padding: 0px 100px 0px 0;
     min-height: 600px
 }
-.grey-text {
-    line-height: 25px;
-    font-size: 18px;
-    display: block;
-    color: #999;
-}
-.footer .grey {
-    font-size: 13px;
-    line-height: 17px;
-}
 
-
-.side-bar {
-    line-height: 28px;
-    font-size: 16px;
-    font-family: "Adelle Sans Regular", sans-serif;
-    color: #333;
-
-
-}
 
 .all-content {
     padding-top: 60px;
     padding-bottom: 20px;
 }
-.side-bar h {
-    font-weight: 500;
-    padding: 5px 0;
-}
-.avatar {
-    width: 125px;
-    margin-left: 30px;
-    padding-bottom: 20px;
-    padding-top: 20px;
 
-}
 
-.footer {
-    border-top: 1px solid rgb(245, 11, 170);
-    padding: 10px 20px 0 20px ;
 
-}
-
-.footer a {
-    text-decoration: underline;
-    color: rgb(245, 11, 170);
-}
