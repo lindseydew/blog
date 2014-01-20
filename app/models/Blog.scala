@@ -1,12 +1,11 @@
 package models
 
 import org.joda.time.DateTime
-import org.joda.time.format.DateTimeFormat
 
 
 import laika.api.Transform
 import laika.parse.markdown.Markdown
-import java.io.{IOException, FileNotFoundException, File}
+import java.io.File
 
 import java.text.SimpleDateFormat
 import io.{BufferedSource, Source}
