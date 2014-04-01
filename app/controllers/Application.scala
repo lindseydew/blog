@@ -87,7 +87,7 @@ object Application extends Controller {
 
 
 
-//  import myApp.Status._
+//  import myApp.Status`._
 //  def newBlog = Action { implicit request =>
 //    blogForm.bindFromRequest.fold(
 //      errors => {
